@@ -1,5 +1,10 @@
 baseURL = "https://example.org/"
 theme = "hugo-book"
+
+# GitHub Actions build cache (https://gohugo.io/hosting-and-deployment/hosting-on-github/)
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
 locale = "en-us"
 title = "AWS CloudOps Notes"
 enableRobotsTXT = true
