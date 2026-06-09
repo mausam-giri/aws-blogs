@@ -18,8 +18,11 @@ hugo version
 ## Quick start
 
 ```bash
-git clone <your-repo-url>
+git clone --recurse-submodules <your-repo-url>
 cd blogs
+
+# If you already cloned without submodules:
+git submodule update --init --recursive
 
 # Optional: install JS deps and rebuild syntax-highlighter bundle
 npm ci
