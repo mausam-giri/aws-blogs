@@ -12,7 +12,7 @@ bookCollapseSection: true
 
 Operational runbooks and step-by-step walkthroughs. Start with a domain guide for reference, then follow a project series for hands-on practice.
 
-### Walkthroughs
+### Walkthrough
 
 - [ShopSphere on Amazon EKS]({{< relref "guides/shopsphere-eks" >}}) — 19-phase EKS deployment from VPC to GitOps
 - [OrderFlow on AWS]({{< relref "guides/orderflow-aws" >}}) — 15-phase migration to RDS, SQS, SNS, and DynamoDB
