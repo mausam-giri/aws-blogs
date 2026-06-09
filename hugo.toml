@@ -1,4 +1,4 @@
-baseURL = "https://example.org/"
+baseURL = "https://mausam-giri.github.io/aws-blogs/"
 theme = "hugo-book"
 
 # GitHub Actions build cache (https://gohugo.io/hosting-and-deployment/hosting-on-github/)

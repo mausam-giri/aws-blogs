@@ -53,10 +53,21 @@ Open `http://localhost:1313/`. The generated site is written to `public/` (do no
 
 ## Configuration
 
-- **Local dev:** `baseURL` in `hugo.toml` defaults to `https://example.org/`.
-- **GitHub Pages:** the CI workflow passes `--baseURL` from `actions/configure-pages`, so you do not need to change `hugo.toml` per environment.
+- **Published URL:** [https://mausam-giri.github.io/aws-blogs/](https://mausam-giri.github.io/aws-blogs/) (GitHub Pages project site)
+- **Local dev:** `hugo server` serves at `http://localhost:1313/` — `baseURL` in `hugo.toml` is for production links only.
+- **CI:** the workflow passes `--baseURL` from `actions/configure-pages` (same `github.io` URL when no custom domain is set).
 
-For a **project site** (`https://<user>.github.io/<repo>/`), enable Pages with the workflow below — Hugo receives the correct base URL automatically.
+### Do not use a custom domain on this repo
+
+If your apex domain (`mausamgiri-dev.me`) already hosts a **Next.js** app, leave GitHub Pages on the default **`github.io`** URL only.
+
+**If `https://mausam-giri.github.io/aws-blogs/` redirects to `mausamgiri-dev.me`**, a custom domain is still enabled on this repo. Fix it in GitHub (not in Hugo):
+
+1. **github.com/mausam-giri/aws-blogs** → **Settings** → **Pages**
+2. Under **Custom domain**, click **Remove** (or clear the field and save)
+3. Wait a few minutes, then open `https://mausam-giri.github.io/aws-blogs/` again — it should load without redirecting
+
+The CI workflow pins `HUGO_BASEURL` to `github.io` so builds stay correct even if Pages settings were wrong before.
 
 ## Deploy to GitHub Pages
 
@@ -66,7 +77,9 @@ Based on the [official Hugo + GitHub Pages guide](https://gohugo.io/hosting-and-
 
 1. Push this repository to GitHub on the **`main`** branch.
 2. In the repo: **Settings → Pages → Build and deployment → Source**, choose **GitHub Actions**.
-3. Ensure the workflow file exists: `.github/workflows/hugo.yaml`.
+3. **Custom domain:** leave empty (use `https://mausam-giri.github.io/aws-blogs/`).
+4. Ensure the workflow file exists: `.github/workflows/hugo.yaml`.
+5. Link from your Next.js site if you want, e.g. `href="https://mausam-giri.github.io/aws-blogs/"` — do not try to mount this Hugo site at `/aws-blogs/` on the same domain as Next.js without a reverse proxy.
 
 ### How it works
 

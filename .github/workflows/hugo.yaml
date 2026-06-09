@@ -30,6 +30,8 @@ jobs:
       GO_VERSION: 1.26.3
       HUGO_VERSION: 0.163.0
       NODE_VERSION: 24.16.0
+      # Always build for github.io (do not use a custom domain in repo Pages settings)
+      HUGO_BASEURL: https://mausam-giri.github.io/aws-blogs
       TZ: UTC
     steps:
       - name: Checkout
@@ -48,10 +50,6 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v6
 
       - name: Create directory for user-specific executable files
         run: |
@@ -104,7 +102,7 @@ jobs:
           hugo build \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/" \
+            --baseURL "${HUGO_BASEURL}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
 
       - name: Cache save
