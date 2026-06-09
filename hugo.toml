@@ -1,0 +1,48 @@
+baseURL = "https://example.org/"
+theme = "hugo-book"
+locale = "en-us"
+title = "AWS CloudOps Notes"
+enableRobotsTXT = true
+enableGitInfo = false
+disablePathToLower = true
+
+[taxonomies]
+  tag = "tags"
+
+[related]
+  threshold = 20
+  includeNewer = true
+  toLower = true
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+  [markup.highlight]
+    codeFences = true
+    lineNos = false
+    lineNumbersInTable = false
+    tabWidth = 2
+    noClasses = false
+    # Syntax colors: highlight.js (Tokyo Night) via render-codeblock hook
+
+[params]
+  description = "AWS CloudOps runbooks, walkthroughs, and copy-paste examples for EKS, networking, serverless, and data services."
+  BookTheme = "auto"
+  BookToC = true
+  BookSearch = true
+  BookSection = "/"
+  BookComments = false
+  BookPortableLinks = false
+  BookDateFormat = "January 2, 2006"

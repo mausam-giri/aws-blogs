@@ -1,0 +1,9 @@
+{{- /* High-contrast Mermaid rendering (theme-aware) */ -}}
+<pre class="mermaid">{{ .Inner | htmlEscape | safeHTML -}}</pre>
+{{- if not (.Page.Store.Get "mermaid") -}}
+  <script src="{{ "mermaid.min.js" | relURL }}"></script>
+  {{- with resources.Get "mermaid-theme.js" | resources.Minify -}}
+    <script>{{ .Content | safeJS }}</script>
+  {{- end -}}
+  {{- .Page.Store.Set "mermaid" true -}}
+{{- end -}}

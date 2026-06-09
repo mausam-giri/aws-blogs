@@ -1,0 +1,8 @@
+{{- if .Params.tags }}
+<div class="tag-links" style="margin-top: 1.5rem; margin-bottom: 1rem;">
+  <strong>Tags:</strong>
+  {{- range .Params.tags }}
+  <a href="{{ "tags" | absURL }}/{{ . | urlize }}/" class="tag-link" style="margin-left: 0.5rem;">#{{ . }}</a>
+  {{- end }}
+</div>
+{{- end }}

@@ -1,0 +1,36 @@
+<div class="json-tool" id="aws-json-tool">
+  <div class="json-tool__toolbar">
+    <button type="button" class="json-tool__btn json-tool__btn--primary" id="json-tool-beautify">Beautify</button>
+    <button type="button" class="json-tool__btn" id="json-tool-lint">Lint (AWS IAM)</button>
+    <button type="button" class="json-tool__btn" id="json-tool-minify">Minify</button>
+    <button type="button" class="json-tool__btn" id="json-tool-copy">Copy output</button>
+    <button type="button" class="json-tool__btn" id="json-tool-clear">Clear</button>
+  </div>
+
+  <div class="json-tool__panels">
+    <div class="json-tool__panel">
+      <label class="json-tool__label" for="json-tool-input">Input JSON</label>
+      <textarea
+        id="json-tool-input"
+        class="json-tool__textarea"
+        spellcheck="false"
+        placeholder='Paste IAM policy JSON, e.g. {"Version":"2012-10-17","Statement":[...]}'
+      ></textarea>
+    </div>
+    <div class="json-tool__panel">
+      <label class="json-tool__label" for="json-tool-output">Output</label>
+      <textarea id="json-tool-output" class="json-tool__textarea" spellcheck="false" readonly></textarea>
+    </div>
+  </div>
+
+  <div id="json-tool-status" class="json-tool__status json-tool__status--ok">Paste JSON and click Beautify or Lint.</div>
+
+  <div hidden>
+    <strong>Lint notes</strong>
+    <ul id="json-tool-issues" class="json-tool__issues"></ul>
+  </div>
+</div>
+
+{{ with resources.Get "json-tool.js" | resources.Minify }}
+  <script>{{ .Content | safeJS }}</script>
+{{ end }}

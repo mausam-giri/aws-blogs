@@ -1,0 +1,46 @@
+{{- $current := . -}}
+{{- $relatedPages := slice -}}
+{{- $seen := dict -}}
+
+{{- with .Params.related -}}
+  {{- range . -}}
+    {{- $path := strings.TrimSuffix "/" . -}}
+    {{- $page := site.GetPage $path -}}
+    {{- if and $page (ne $page $current) -}}
+      {{- $relatedPages = $relatedPages | append (dict "page" $page "source" "recommended" "score" 100) -}}
+      {{- $seen = merge $seen (dict $page.RelPermalink true) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $currentTags := .Params.tags | default slice -}}
+{{- range site.RegularPages -}}
+  {{- if eq . $current -}}{{- continue -}}{{- end -}}
+  {{- if index $seen .RelPermalink -}}{{- continue -}}{{- end -}}
+  {{- $shared := 0 -}}
+  {{- range .Params.tags -}}
+    {{- if in $currentTags . -}}
+      {{- $shared = add $shared 1 -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if ge $shared 2 -}}
+    {{- $relatedPages = $relatedPages | append (dict "page" . "source" "tags" "score" $shared) -}}
+    {{- $seen = merge $seen (dict .RelPermalink true) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if gt (len $relatedPages) 0 -}}
+<div class="related-content" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
+  <h2>Related content</h2>
+  <ul>
+    {{- range first 8 (sort $relatedPages "score" "desc") -}}
+    <li>
+      <a href="{{ .page.RelPermalink }}">{{ .page.Title }}</a>
+      <span style="opacity: 0.7; font-size: 0.9em;">
+        ({{ .page.Section }}{{ if eq .source "recommended" }} · recommended{{ else }} · shared tags{{ end }})
+      </span>
+    </li>
+    {{- end -}}
+  </ul>
+</div>
+{{- end -}}

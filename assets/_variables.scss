@@ -1,0 +1,9 @@
+/* Layout — full width up to 1440px (px avoids rem drift from 18px root) */
+$container-max-width: 1440px;
+
+/* Article base typography (sidebars override in _custom.scss) */
+:root {
+  --font-size: 18px;
+  --font-size-smaller: 0.875rem;
+  --font-size-smallest: 0.75rem;
+}

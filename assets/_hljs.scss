@@ -1,0 +1,175 @@
+// highlight.js — Tokyo Night (dark default, light via prefers-color-scheme)
+
+$codeblock-toolbar-offset: 2.75rem;
+
+.markdown .highlight pre {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+}
+
+.markdown .highlight pre code,
+.markdown .highlight pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1rem;
+  font-size: 0.92em;
+  line-height: 1.55;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--code-border, #3d5166);
+}
+
+// Room for the copy/wrap toolbar — must beat the rule above
+.markdown .highlight.codeblock pre code,
+.markdown .highlight.codeblock pre code.hljs {
+  padding-top: $codeblock-toolbar-offset;
+}
+
+// Tokyo Night Dark
+.hljs-meta,
+.hljs-comment {
+  color: #565f89;
+}
+.hljs-tag,
+.hljs-doctag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-template-tag,
+.hljs-selector-pseudo,
+.hljs-selector-attr,
+.hljs-variable.language_,
+.hljs-deletion {
+  color: #f7768e;
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-number,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-link {
+  color: #ff9e64;
+}
+.hljs-built_in,
+.hljs-attribute {
+  color: #e0af68;
+}
+.hljs-selector-tag {
+  color: #73daca;
+}
+.hljs-keyword,
+.hljs-title.function_,
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-subst,
+.hljs-property {
+  color: #7dcfff;
+}
+.hljs-quote,
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #9ece6a;
+}
+.hljs-code,
+.hljs-formula,
+.hljs-section {
+  color: #7aa2f7;
+}
+.hljs-name,
+.hljs-operator,
+.hljs-char.escape_,
+.hljs-attr {
+  color: #bb9af7;
+}
+.hljs-punctuation {
+  color: #c0caf5;
+}
+.hljs {
+  background: #1a1b26;
+  color: #c0caf5;
+}
+
+@media (prefers-color-scheme: light) {
+  .hljs-meta,
+  .hljs-comment {
+    color: #9699a3;
+  }
+  .hljs-tag,
+  .hljs-doctag,
+  .hljs-selector-id,
+  .hljs-selector-class,
+  .hljs-regexp,
+  .hljs-template-tag,
+  .hljs-selector-pseudo,
+  .hljs-selector-attr,
+  .hljs-variable.language_,
+  .hljs-deletion {
+    color: #8c4351;
+  }
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-number,
+  .hljs-literal,
+  .hljs-type,
+  .hljs-params,
+  .hljs-link {
+    color: #965027;
+  }
+  .hljs-built_in,
+  .hljs-attribute {
+    color: #8f5e15;
+  }
+  .hljs-selector-tag {
+    color: #33635c;
+  }
+  .hljs-keyword,
+  .hljs-title.function_,
+  .hljs-title,
+  .hljs-title.class_,
+  .hljs-title.class_.inherited__,
+  .hljs-subst,
+  .hljs-property {
+    color: #0f4b6e;
+  }
+  .hljs-quote,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-addition {
+    color: #485e30;
+  }
+  .hljs-code,
+  .hljs-formula,
+  .hljs-section {
+    color: #34548a;
+  }
+  .hljs-name,
+  .hljs-operator,
+  .hljs-char.escape_,
+  .hljs-attr {
+    color: #5a4a78;
+  }
+  .hljs-punctuation {
+    color: #343b58;
+  }
+  .hljs {
+    background: #e8eaf0;
+    color: #343b58;
+  }
+
+  .markdown .highlight pre code.hljs {
+    border-color: #c5ced6;
+  }
+}
+
+// Soft-wrap compatibility (toolbar)
+.codeblock--wrap pre code.hljs {
+  white-space: pre-wrap !important;
+  overflow-x: hidden;
+  word-break: break-word;
+}

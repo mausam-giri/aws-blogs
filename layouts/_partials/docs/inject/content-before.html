@@ -1,0 +1,6 @@
+{{ if and (eq .Kind "page") (ne .Section "posts") (not .Params.bookHidden) (not .Layout) }}
+<header class="book-page-header">
+  <h1>{{ partial "docs/title" . }}</h1>
+  {{ with .Description }}<p class="book-page-lead">{{ . }}</p>{{ end }}
+</header>
+{{ end }}
