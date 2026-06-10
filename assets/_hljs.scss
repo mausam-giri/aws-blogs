@@ -1,4 +1,4 @@
-// highlight.js — Tokyo Night (dark default, light via prefers-color-scheme)
+// highlight.js — Tokyo Night palettes synced with html[data-theme]
 
 $codeblock-toolbar-offset: 2.75rem;
 
@@ -17,87 +17,20 @@ $codeblock-toolbar-offset: 2.75rem;
   font-size: 0.92em;
   line-height: 1.55;
   border-radius: var(--border-radius);
-  border: 1px solid var(--code-border, #3d5166);
+  border: 1px solid var(--code-border);
+  background: var(--code-bg);
+  color: var(--code-fg);
 }
 
-// Room for the copy/wrap toolbar — must beat the rule above
 .markdown .highlight.codeblock pre code,
 .markdown .highlight.codeblock pre code.hljs {
   padding-top: $codeblock-toolbar-offset;
 }
 
-// Tokyo Night Dark
-.hljs-meta,
-.hljs-comment {
-  color: #565f89;
-}
-.hljs-tag,
-.hljs-doctag,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-template-tag,
-.hljs-selector-pseudo,
-.hljs-selector-attr,
-.hljs-variable.language_,
-.hljs-deletion {
-  color: #f7768e;
-}
-.hljs-variable,
-.hljs-template-variable,
-.hljs-number,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-link {
-  color: #ff9e64;
-}
-.hljs-built_in,
-.hljs-attribute {
-  color: #e0af68;
-}
-.hljs-selector-tag {
-  color: #73daca;
-}
-.hljs-keyword,
-.hljs-title.function_,
-.hljs-title,
-.hljs-title.class_,
-.hljs-title.class_.inherited__,
-.hljs-subst,
-.hljs-property {
-  color: #7dcfff;
-}
-.hljs-quote,
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-  color: #9ece6a;
-}
-.hljs-code,
-.hljs-formula,
-.hljs-section {
-  color: #7aa2f7;
-}
-.hljs-name,
-.hljs-operator,
-.hljs-char.escape_,
-.hljs-attr {
-  color: #bb9af7;
-}
-.hljs-punctuation {
-  color: #c0caf5;
-}
-.hljs {
-  background: #1a1b26;
-  color: #c0caf5;
-}
-
-@media (prefers-color-scheme: light) {
+@mixin hljs-dark {
   .hljs-meta,
   .hljs-comment {
-    color: #9699a3;
+    color: #565f89;
   }
   .hljs-tag,
   .hljs-doctag,
@@ -109,7 +42,7 @@ $codeblock-toolbar-offset: 2.75rem;
   .hljs-selector-attr,
   .hljs-variable.language_,
   .hljs-deletion {
-    color: #8c4351;
+    color: #f7768e;
   }
   .hljs-variable,
   .hljs-template-variable,
@@ -118,14 +51,14 @@ $codeblock-toolbar-offset: 2.75rem;
   .hljs-type,
   .hljs-params,
   .hljs-link {
-    color: #965027;
+    color: #ff9e64;
   }
   .hljs-built_in,
   .hljs-attribute {
-    color: #8f5e15;
+    color: #e0af68;
   }
   .hljs-selector-tag {
-    color: #33635c;
+    color: #73daca;
   }
   .hljs-keyword,
   .hljs-title.function_,
@@ -134,36 +67,118 @@ $codeblock-toolbar-offset: 2.75rem;
   .hljs-title.class_.inherited__,
   .hljs-subst,
   .hljs-property {
-    color: #0f4b6e;
+    color: #7dcfff;
   }
   .hljs-quote,
   .hljs-string,
   .hljs-symbol,
   .hljs-bullet,
   .hljs-addition {
-    color: #485e30;
+    color: #9ece6a;
   }
   .hljs-code,
   .hljs-formula,
   .hljs-section {
-    color: #34548a;
+    color: #7aa2f7;
   }
   .hljs-name,
   .hljs-operator,
   .hljs-char.escape_,
   .hljs-attr {
-    color: #5a4a78;
+    color: #bb9af7;
   }
   .hljs-punctuation {
-    color: #343b58;
+    color: #c0caf5;
   }
   .hljs {
-    background: #e8eaf0;
-    color: #343b58;
+    background: var(--code-bg);
+    color: var(--code-fg);
   }
+}
 
-  .markdown .highlight pre code.hljs {
-    border-color: #c5ced6;
+@mixin hljs-light {
+  .hljs-meta,
+  .hljs-comment {
+    color: #64748b;
+  }
+  .hljs-tag,
+  .hljs-doctag,
+  .hljs-selector-id,
+  .hljs-selector-class,
+  .hljs-regexp,
+  .hljs-template-tag,
+  .hljs-selector-pseudo,
+  .hljs-selector-attr,
+  .hljs-variable.language_,
+  .hljs-deletion {
+    color: #9f1239;
+  }
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-number,
+  .hljs-literal,
+  .hljs-type,
+  .hljs-params,
+  .hljs-link {
+    color: #9a3412;
+  }
+  .hljs-built_in,
+  .hljs-attribute {
+    color: #854d0e;
+  }
+  .hljs-selector-tag {
+    color: #0f766e;
+  }
+  .hljs-keyword,
+  .hljs-title.function_,
+  .hljs-title,
+  .hljs-title.class_,
+  .hljs-title.class_.inherited__,
+  .hljs-subst,
+  .hljs-property {
+    color: #1e40af;
+  }
+  .hljs-quote,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-addition {
+    color: #166534;
+  }
+  .hljs-code,
+  .hljs-formula,
+  .hljs-section {
+    color: #1d4ed8;
+  }
+  .hljs-name,
+  .hljs-operator,
+  .hljs-char.escape_,
+  .hljs-attr {
+    color: #6d28d9;
+  }
+  .hljs-punctuation {
+    color: #334155;
+  }
+  .hljs {
+    background: var(--code-bg);
+    color: var(--code-fg);
+  }
+}
+
+// Default (before JS): follow data-theme from head anti-flash script
+html[data-theme="dark"] {
+  @include hljs-dark;
+}
+
+html[data-theme="light"] {
+  @include hljs-light;
+}
+
+html[data-theme="auto"] {
+  @include hljs-dark;
+
+  @media (prefers-color-scheme: light) {
+    @include hljs-light;
   }
 }
 

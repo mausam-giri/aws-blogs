@@ -156,10 +156,10 @@ body {
   color: var(--body-font-color);
 }
 
-// Mermaid diagrams — readable panel + SVG text contrast
+// Mermaid diagrams — panel + edge-label contrast (node colors from mermaid-theme.js)
 :root {
-  --mermaid-panel-bg: var(--surface-muted);
-  --mermaid-panel-border: var(--border-subtle);
+  --mermaid-panel-bg: var(--code-bg);
+  --mermaid-panel-border: var(--code-border);
 }
 
 pre.mermaid {
@@ -180,19 +180,21 @@ pre.mermaid {
   margin: 0 auto;
 }
 
-.mermaid .nodeLabel,
+// Edge path labels only — do not override node label colors (white on blue nodes)
 .mermaid .edgeLabel,
-.mermaid .label,
-.mermaid .cluster-label,
-.mermaid p {
-  color: var(--body-font-color) !important;
-  font-size: 1rem !important;
-  font-weight: 500 !important;
+.mermaid .edgeLabel .label {
+  color: var(--code-fg) !important;
 }
 
 .mermaid .edgeLabel rect {
-  fill: var(--mermaid-panel-bg) !important;
-  stroke: var(--mermaid-panel-border) !important;
+  fill: var(--surface-elevated) !important;
+  stroke: var(--code-border) !important;
+}
+
+.mermaid .edgeLabel span,
+.mermaid .edgeLabel p {
+  color: var(--code-fg) !important;
+  background: var(--surface-elevated) !important;
 }
 
 // In-block code toolbar (copy + soft wrap)
@@ -472,11 +474,17 @@ body {
   }
 }
 
+.markdown .highlight pre code:not(.hljs) {
+  color: var(--code-fg);
+  background: var(--code-bg);
+}
+
 .highlight,
 .codeblock pre,
 .codeblock .highlight {
-  background: var(--surface-muted) !important;
-  border: 1px solid var(--border-subtle);
+  background: var(--code-bg) !important;
+  color: var(--code-fg);
+  border: 1px solid var(--code-border);
   border-radius: var(--radius-lg);
 }
 

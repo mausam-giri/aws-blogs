@@ -1,12 +1,19 @@
 /**
- * Mermaid theme — high-contrast palettes for light and dark (prefers-color-scheme).
+ * Mermaid theme — high-contrast palettes synced with html[data-theme].
  */
 (function () {
   "use strict";
 
-  var mq = window.matchMedia("(prefers-color-scheme: dark)");
+  var media = window.matchMedia("(prefers-color-scheme: dark)");
 
-  function themeConfig(isDark) {
+  function isDark() {
+    var mode = document.documentElement.dataset.theme || "auto";
+    if (mode === "dark") return true;
+    if (mode === "light") return false;
+    return media.matches;
+  }
+
+  function themeConfig(dark) {
     return {
       startOnLoad: true,
       theme: "base",
@@ -16,64 +23,84 @@
         htmlLabels: true,
         curve: "basis",
       },
-      themeVariables: isDark
+      themeVariables: dark
         ? {
             fontSize: "17px",
             fontFamily: "system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
             darkMode: "true",
-            background: "#1a2332",
-            primaryColor: "#2b5a8c",
+            background: "#1e293b",
+            primaryColor: "#1d4ed8",
             primaryTextColor: "#ffffff",
-            primaryBorderColor: "#7eb8e8",
-            secondaryColor: "#3d5a73",
+            primaryBorderColor: "#93c5fd",
+            secondaryColor: "#2563eb",
             secondaryTextColor: "#ffffff",
-            secondaryBorderColor: "#9ec3e6",
-            tertiaryColor: "#1e3a52",
+            secondaryBorderColor: "#93c5fd",
+            tertiaryColor: "#3b82f6",
             tertiaryTextColor: "#ffffff",
-            lineColor: "#c8d6e5",
-            textColor: "#f2f4f8",
-            mainBkg: "#2b5a8c",
-            nodeBorder: "#7eb8e8",
+            lineColor: "#cbd5e1",
+            textColor: "#e2e8f0",
+            mainBkg: "#1d4ed8",
+            nodeBorder: "#93c5fd",
             nodeTextColor: "#ffffff",
-            clusterBkg: "#243044",
-            clusterBorder: "#6b9cc4",
-            titleColor: "#ffffff",
-            edgeLabelBackground: "#1a2332",
-            labelTextColor: "#f2f4f8",
-            actorTextColor: "#f2f4f8",
-            signalTextColor: "#f2f4f8",
-            cScale0: "#2b5a8c",
-            cScale1: "#3d6b8c",
-            cScale2: "#4a7a9c",
+            clusterBkg: "#0f172a",
+            clusterBorder: "#64748b",
+            titleColor: "#f8fafc",
+            edgeLabelBackground: "#1e293b",
+            labelTextColor: "#f8fafc",
+            actorTextColor: "#f8fafc",
+            signalTextColor: "#f8fafc",
+            cScale0: "#1d4ed8",
+            cScale1: "#2563eb",
+            cScale2: "#3b82f6",
           }
         : {
             fontSize: "17px",
             fontFamily: "system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
             darkMode: "false",
-            background: "#f4f7fb",
-            primaryColor: "#d6e8f7",
-            primaryTextColor: "#121212",
-            primaryBorderColor: "#0047a3",
-            secondaryColor: "#c5daf0",
-            secondaryTextColor: "#121212",
-            secondaryBorderColor: "#0047a3",
-            tertiaryColor: "#eaf2fa",
-            tertiaryTextColor: "#121212",
-            lineColor: "#3b4248",
-            textColor: "#121212",
-            mainBkg: "#d6e8f7",
-            nodeBorder: "#0047a3",
-            nodeTextColor: "#121212",
-            clusterBkg: "#eef3f9",
-            clusterBorder: "#5c636a",
-            titleColor: "#121212",
+            background: "#f8fafc",
+            primaryColor: "#1d4ed8",
+            primaryTextColor: "#ffffff",
+            primaryBorderColor: "#1e40af",
+            secondaryColor: "#2563eb",
+            secondaryTextColor: "#ffffff",
+            secondaryBorderColor: "#1e40af",
+            tertiaryColor: "#3b82f6",
+            tertiaryTextColor: "#ffffff",
+            lineColor: "#475569",
+            textColor: "#0f172a",
+            mainBkg: "#1d4ed8",
+            nodeBorder: "#1e40af",
+            nodeTextColor: "#ffffff",
+            clusterBkg: "#eff6ff",
+            clusterBorder: "#93c5fd",
+            titleColor: "#0f172a",
             edgeLabelBackground: "#ffffff",
-            labelTextColor: "#121212",
+            labelTextColor: "#0f172a",
+            actorTextColor: "#0f172a",
+            signalTextColor: "#0f172a",
+            cScale0: "#1d4ed8",
+            cScale1: "#2563eb",
+            cScale2: "#3b82f6",
           },
     };
   }
 
-  if (typeof mermaid !== "undefined") {
-    mermaid.initialize(themeConfig(mq.matches));
+  function initMermaid() {
+    if (typeof mermaid === "undefined") return;
+    mermaid.initialize(themeConfig(isDark()));
+  }
+
+  initMermaid();
+
+  document.addEventListener("blog-theme-change", function () {
+    initMermaid();
+  });
+
+  if (media.addEventListener) {
+    media.addEventListener("change", function () {
+      if ((document.documentElement.dataset.theme || "auto") === "auto") {
+        initMermaid();
+      }
+    });
   }
 })();
