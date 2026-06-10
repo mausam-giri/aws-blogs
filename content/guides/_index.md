@@ -6,6 +6,7 @@ lastmod: 2026-06-09
 draft: false
 weight: 10
 bookCollapseSection: true
+bookIcon: toc
 ---
 
 ## What's here

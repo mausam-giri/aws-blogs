@@ -1,0 +1,22 @@
+{{- $page := .page -}}
+{{- $badge := .badge | default "Article" -}}
+{{- $index := .index | default 0 -}}
+{{- $desc := $page.Description | default ($page.Summary | plainify | truncate 140) -}}
+{{- $badgeClass := "home-card__badge--default" -}}
+{{- if eq $badge "Guide" -}}{{- $badgeClass = "home-card__badge--guide" -}}{{- end -}}
+{{- if eq $badge "Post" -}}{{- $badgeClass = "home-card__badge--post" -}}{{- end -}}
+{{- if eq $badge "Example" -}}{{- $badgeClass = "home-card__badge--example" -}}{{- end -}}
+<a
+  href="{{ $page.RelPermalink }}"
+  class="home-card"
+  style="--i: {{ $index }}"
+>
+  <span class="home-card__badge {{ $badgeClass }}">{{ $badge }}</span>
+  <h3 class="home-card__title">{{ partial "docs/title" $page }}</h3>
+  {{- with $desc -}}
+  <p class="home-card__desc">{{ . }}</p>
+  {{- end -}}
+  {{- if eq $badge "Post" -}}
+  <time class="home-card__meta">{{ partial "docs/date" (dict "Date" $page.Date "Format" $.Site.Params.BookDateFormat) }}</time>
+  {{- end -}}
+</a>

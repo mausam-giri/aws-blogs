@@ -1,0 +1,15 @@
+<section class="home-section home-tags" id="tags">
+  <div class="home-section__head">
+    <div>
+      <h2>Browse by tag</h2>
+      <p>Popular topics across guides, posts, and examples.</p>
+    </div>
+    <a class="home-section__more" href="{{ "tags/" | relURL }}">All tags →</a>
+  </div>
+  <div class="tag-pills">
+    {{- $tags := slice "eks" "iam" "vpc" "lambda" "networking" "rds" "kubernetes" "serverless" -}}
+    {{- range $tags -}}
+    <a class="tag-pill" href="{{ printf "tags/%s/" (. | urlize) | relURL }}">#{{ . }}</a>
+    {{- end -}}
+  </div>
+</section>

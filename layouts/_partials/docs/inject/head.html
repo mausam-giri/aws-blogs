@@ -1,0 +1,11 @@
+<script>
+(function () {
+  try {
+    document.documentElement.dataset.theme = localStorage.getItem("blog-theme") || "auto";
+  } catch (e) {
+    document.documentElement.dataset.theme = "auto";
+  }
+})();
+</script>
+<link href="{{ "pagefind/pagefind-component-ui.css" | relURL }}" rel="stylesheet">
+<script src="{{ "pagefind/pagefind-component-ui.js" | relURL }}" type="module"></script>

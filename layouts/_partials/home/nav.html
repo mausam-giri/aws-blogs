@@ -1,0 +1,18 @@
+<header class="home-nav" data-pagefind-ignore>
+  <div class="home-nav__start">
+    <a class="home-nav__brand" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <nav class="home-nav__links" aria-label="Primary">
+      <a href="{{ "guides/" | relURL }}">Guides</a>
+      <a href="{{ "posts/" | relURL }}">Posts</a>
+      <a href="{{ "examples/" | relURL }}">Examples</a>
+      <a href="{{ "tags/" | relURL }}">Tags</a>
+    </nav>
+  </div>
+  <div class="home-nav__actions">
+    {{ partial "theme-toggle.html" (dict "class" "") }}
+    <button type="button" class="home-nav__search pagefind-trigger" aria-label="Search site">
+      <span class="home-nav__search-label">Search…</span>
+      <kbd>/</kbd>
+    </button>
+  </div>
+</header>

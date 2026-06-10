@@ -1,9 +1,15 @@
 /* Layout — full width up to 1440px (px avoids rem drift from 18px root) */
 $container-max-width: 1440px;
+$home-max-width: 960px;
 
 /* Article base typography (sidebars override in _custom.scss) */
 :root {
   --font-size: 18px;
   --font-size-smaller: 0.875rem;
   --font-size-smallest: 0.75rem;
+  --prose-measure: 72ch;
+  --radius-lg: 12px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 220ms;
 }

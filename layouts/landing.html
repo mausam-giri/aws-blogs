@@ -1,0 +1,27 @@
+{{ define "menu-container" }}
+<!-- -->
+{{ end }}
+{{ define "toc-container" }}
+<!-- -->
+{{ end }}
+{{ define "footer" }}
+<!-- -->
+{{ end }}
+
+{{ define "header" }}
+<nav data-pagefind-ignore>
+  {{ partial "docs/menu-hugo" (dict "Page" .Page "Menu" .Site.Menus.home) }}
+</nav>
+{{ end }}
+
+{{ define "main" }}
+<div class="home" data-pagefind-body>
+  {{ partial "home/nav.html" . }}
+  {{ partial "home/hero.html" . }}
+  {{ partial "home/section-guides.html" . }}
+  {{ partial "home/section-posts.html" . }}
+  {{ partial "home/section-examples.html" . }}
+  {{ partial "home/tags.html" . }}
+  {{ partial "home/guardrails.html" . }}
+</div>
+{{ end }}

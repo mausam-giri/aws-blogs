@@ -1,0 +1,17 @@
+{{- $guides := site.GetPage "guides" -}}
+<section class="home-section" id="guides">
+  <div class="home-section__head">
+    <div>
+      <h2>Guides</h2>
+      <p>Operational runbooks and step-by-step walkthroughs.</p>
+    </div>
+    <a class="home-section__more" href="{{ $guides.RelPermalink }}">View all →</a>
+  </div>
+  <div class="home-grid">
+    {{- range $i, $p := $guides.Pages.ByWeight -}}
+      {{- if ne $p.RelPermalink $guides.RelPermalink -}}
+        {{- partial "home/card.html" (dict "page" $p "badge" "Guide" "index" $i "Site" $.Site) -}}
+      {{- end -}}
+    {{- end -}}
+  </div>
+</section>

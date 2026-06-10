@@ -105,6 +105,9 @@ jobs:
             --baseURL "${HUGO_BASEURL}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
 
+      - name: Build Pagefind index
+        run: npx pagefind --site public --force-language en
+
       - name: Cache save
         id: cache-save
         uses: actions/cache/save@v5

@@ -1,0 +1,168 @@
+// Modern Cloud theme — overrides hugo-book theme-light / theme-dark / theme-auto mixins.
+// Palette: slate neutrals + blue primary + cyan accent + violet/emerald section badges.
+
+@mixin cloud-accents-light {
+  @include accent("default", #64748b);
+  @include accent("note", #2563eb);
+  @include accent("tip", #059669);
+  @include accent("important", #7c3aed);
+  @include accent("warning", #ea580c);
+  @include accent("caution", #dc2626);
+  @include accent("info", #2563eb);
+  @include accent("success", #059669);
+  @include accent("danger", #dc2626);
+}
+
+@mixin cloud-accents-dark {
+  @include accent("default", #94a3b8);
+  @include accent("note", #60a5fa);
+  @include accent("tip", #34d399);
+  @include accent("important", #a78bfa);
+  @include accent("warning", #fb923c);
+  @include accent("caution", #f87171);
+  @include accent("info", #60a5fa);
+  @include accent("success", #34d399);
+  @include accent("danger", #f87171);
+}
+
+@mixin cloud-tokens-light {
+  --body-background: #eef2f7;
+  --body-background-tint: radial-gradient(1200px 600px at 10% -10%, rgba(37, 99, 235, 0.07), transparent 55%),
+    radial-gradient(900px 500px at 90% 0%, rgba(8, 145, 178, 0.06), transparent 50%);
+  --body-font-color: #0f172a;
+  --text-secondary: #475569;
+  --color-link: #1d4ed8;
+  --color-visited-link: #6d28d9;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-fg: #ffffff;
+  --color-accent: #0891b2;
+  --color-accent-warm: #ea580c;
+  --icon-filter: none;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-500: #64748b;
+  --surface-elevated: #ffffff;
+  --surface-muted: #e8eef6;
+  --border-subtle: rgba(15, 23, 42, 0.1);
+  --shadow-soft: 0 1px 3px rgba(15, 23, 42, 0.07);
+  --shadow-hover: 0 10px 28px rgba(15, 23, 42, 0.1);
+  --hero-gradient: linear-gradient(135deg, #eff6ff 0%, #ecfeff 42%, #fff7ed 100%);
+  --overlay-backdrop: rgba(15, 23, 42, 0.45);
+  --badge-guide-bg: rgba(124, 58, 237, 0.12);
+  --badge-guide-fg: #6d28d9;
+  --badge-post-bg: rgba(37, 99, 235, 0.12);
+  --badge-post-fg: #1d4ed8;
+  --badge-example-bg: rgba(5, 150, 105, 0.12);
+  --badge-example-fg: #047857;
+  --badge-default-bg: rgba(8, 145, 178, 0.12);
+  --badge-default-fg: #0e7490;
+  --meta-theme-color: #eef2f7;
+  --guardrails-bg: rgba(234, 88, 12, 0.08);
+  --guardrails-border: rgba(234, 88, 12, 0.28);
+
+  /* Pagefind Component UI */
+  --pf-text: #0f172a;
+  --pf-text-secondary: #475569;
+  --pf-text-muted: #64748b;
+  --pf-background: #ffffff;
+  --pf-border: #cbd5e1;
+  --pf-border-focus: #2563eb;
+  --pf-skeleton: #e2e8f0;
+  --pf-skeleton-shine: #f1f5f9;
+  --pf-hover: #f1f5f9;
+  --pf-mark: #1d4ed8;
+  --pf-scroll-shadow: rgba(15, 23, 42, 0.08);
+  --pf-outline-focus: #2563eb;
+  --pf-modal-backdrop: rgba(15, 23, 42, 0.5);
+}
+
+@mixin cloud-tokens-dark {
+  --body-background: #0b1120;
+  --body-background-tint: radial-gradient(1100px 560px at 12% -8%, rgba(59, 130, 246, 0.14), transparent 55%),
+    radial-gradient(900px 480px at 88% 0%, rgba(34, 211, 238, 0.1), transparent 50%);
+  --body-font-color: #e8edf4;
+  --text-secondary: #94a3b8;
+  --color-link: #93c5fd;
+  --color-visited-link: #c4b5fd;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #60a5fa;
+  --color-primary-fg: #ffffff;
+  --color-accent: #22d3ee;
+  --color-accent-warm: #fb923c;
+  --icon-filter: brightness(0) invert(1);
+  --gray-100: #1a2332;
+  --gray-200: #243044;
+  --gray-500: #94a3b8;
+  --surface-elevated: #151d2e;
+  --surface-muted: #1e293b;
+  --border-subtle: rgba(148, 163, 184, 0.18);
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --hero-gradient: linear-gradient(135deg, #151d2e 0%, #172554 45%, #1c1917 100%);
+  --overlay-backdrop: rgba(2, 6, 23, 0.72);
+  --badge-guide-bg: rgba(167, 139, 250, 0.18);
+  --badge-guide-fg: #c4b5fd;
+  --badge-post-bg: rgba(96, 165, 250, 0.18);
+  --badge-post-fg: #93c5fd;
+  --badge-example-bg: rgba(52, 211, 153, 0.16);
+  --badge-example-fg: #6ee7b7;
+  --badge-default-bg: rgba(34, 211, 238, 0.14);
+  --badge-default-fg: #67e8f9;
+  --meta-theme-color: #0b1120;
+  --guardrails-bg: rgba(251, 146, 60, 0.12);
+  --guardrails-border: rgba(251, 146, 60, 0.32);
+
+  /* Pagefind Component UI */
+  --pf-text: #e8edf4;
+  --pf-text-secondary: #94a3b8;
+  --pf-text-muted: #64748b;
+  --pf-background: #151d2e;
+  --pf-border: #334155;
+  --pf-border-focus: #60a5fa;
+  --pf-skeleton: #1e293b;
+  --pf-skeleton-shine: #243044;
+  --pf-hover: #1e293b;
+  --pf-mark: #93c5fd;
+  --pf-scroll-shadow: rgba(0, 0, 0, 0.35);
+  --pf-outline-focus: #60a5fa;
+  --pf-modal-backdrop: rgba(2, 6, 23, 0.75);
+}
+
+@mixin theme-light {
+  @include cloud-tokens-light;
+  @include cloud-accents-light;
+}
+
+@mixin theme-dark {
+  @include cloud-tokens-dark;
+  @include cloud-accents-dark;
+}
+
+@mixin theme-auto {
+  @include theme-light;
+
+  @media (prefers-color-scheme: dark) {
+    @include theme-dark;
+  }
+}
+
+// Manual theme override (set via data-theme on <html>)
+html[data-theme="light"] {
+  color-scheme: light;
+  @include theme-light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  @include theme-dark;
+}
+
+html[data-theme="auto"] {
+  color-scheme: light dark;
+  @include theme-light;
+
+  @media (prefers-color-scheme: dark) {
+    @include theme-dark;
+  }
+}

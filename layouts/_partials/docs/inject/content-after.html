@@ -1,2 +1,5 @@
+{{- if ne .Layout "landing" -}}
 {{- partial "tag-links.html" . -}}
 {{- partial "related-content.html" . -}}
+</div>
+{{- end -}}

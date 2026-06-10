@@ -1,0 +1,15 @@
+{{- $posts := site.GetPage "posts" -}}
+<section class="home-section" id="posts">
+  <div class="home-section__head">
+    <div>
+      <h2>Posts</h2>
+      <p>Conceptual articles and explainers on AWS compute, serverless, and streaming.</p>
+    </div>
+    <a class="home-section__more" href="{{ $posts.RelPermalink }}">View all →</a>
+  </div>
+  <div class="home-grid home-grid--posts">
+    {{- range $i, $p := first 4 (where site.RegularPages "Section" "posts").ByDate.Reverse -}}
+      {{- partial "home/card.html" (dict "page" $p "badge" "Post" "index" $i "Site" $.Site) -}}
+    {{- end -}}
+  </div>
+</section>

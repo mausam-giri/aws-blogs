@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build:hljs": "node scripts/build-hljs.js",
+    "build:pagefind": "pagefind --site public --force-language en",
+    "build": "hugo --minify && npm run build:pagefind",
+    "dev": "hugo --minify && npm run build:pagefind && hugo server -D --disableFastRender",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,6 +18,7 @@
     "highlight.js": "^11.11.1"
   },
   "devDependencies": {
-    "esbuild": "^0.28.0"
+    "esbuild": "^0.28.0",
+    "pagefind": "^1.4.0"
   }
 }

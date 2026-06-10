@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="posts-list" data-pagefind-body>
+  {{ range sort .Paginator.Pages }}
+  <article class="post-card">
+    <a class="post-card__link" href="{{ .RelPermalink }}">
+      <div class="post-card__head">
+        <h2>{{ partial "docs/title" . }}</h2>
+        <time class="post-card__date">{{ partial "docs/date" (dict "Date" .Date "Format" $.Site.Params.BookDateFormat) }}</time>
+      </div>
+      <p class="post-card__excerpt">{{ .Description | default (.Summary | plainify | truncate 200) }}</p>
+      {{- with .Params.tags }}
+      <div class="tag-pills tag-pills--sm">
+        {{- range first 4 . }}
+        <span class="tag-pill tag-pill--static">#{{ . }}</span>
+        {{- end }}
+      </div>
+      {{- end }}
+    </a>
+  </article>
+  {{ end }}
+</div>
+{{ end }}
+
+{{ define "toc-container" }}
+<aside class="book-toc">
+  <div class="book-toc-content">
+    {{ template "toc" . }}
+  </div>
+</aside>
+{{ end }}
+
+{{ define "toc" }}
+  {{ partial "docs/taxonomy" . }}
+{{ end }}
+
+{{ define "footer" }}
+  {{ partial "docs/pagination.html" . }}
+{{ end }}

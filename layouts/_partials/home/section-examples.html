@@ -1,0 +1,15 @@
+{{- $examples := site.GetPage "examples" -}}
+<section class="home-section" id="examples">
+  <div class="home-section__head">
+    <div>
+      <h2>Examples</h2>
+      <p>Copy-paste policies, CLI commands, and reference snippets.</p>
+    </div>
+    <a class="home-section__more" href="{{ $examples.RelPermalink }}">View all →</a>
+  </div>
+  <div class="home-grid">
+    {{- range $i, $p := first 6 (where site.RegularPages "Section" "examples").ByWeight -}}
+      {{- partial "home/card.html" (dict "page" $p "badge" "Example" "index" $i "Site" $.Site) -}}
+    {{- end -}}
+  </div>
+</section>
