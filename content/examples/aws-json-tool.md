@@ -2,7 +2,7 @@
 title: "AWS JSON Policy Tool"
 description: "Parse, beautify, and lint JSON documents with AWS IAM policy checks."
 date: 2026-06-09
-lastmod: 2026-06-09
+lastmod: 2026-06-19
 draft: false
 type: example
 layout: json-tool

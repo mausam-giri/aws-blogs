@@ -2,7 +2,7 @@
 title: "ShopSphere Ingress Variants"
 description: "ALB Ingress manifests for ShopSphere — basic, multi-host, auth, and Grafana routing."
 date: 2026-06-09
-lastmod: 2026-06-09
+lastmod: 2026-06-19
 draft: false
 weight: 36
 type: example
@@ -53,6 +53,32 @@ spec:
             name: frontend
             port:
               number: 80
+```
+
+``` yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: custom-ingress
+  namespace: custom-app
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: custom-alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+
+spec:
+  ingressClassName: alb
+
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: custom-svc
+            port:
+              number: 8080
 ```
 
 ## Multi-host ingress

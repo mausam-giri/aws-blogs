@@ -2,7 +2,7 @@
 title: "IAM Policy Examples"
 description: "Copy-paste IAM policy blocks for trust, S3, SNS, SQS, KMS, boundaries, and SCP guardrails."
 date: 2026-06-09
-lastmod: 2026-06-09
+lastmod: 2026-06-19
 draft: false
 weight: 10
 type: example

@@ -2,7 +2,7 @@
 title: "OrderFlow CLI and Config Snippets"
 description: "EKS, RDS, SQS, SNS, DynamoDB, and IRSA commands from the OrderFlow migration lab."
 date: 2026-06-09
-lastmod: 2026-06-09
+lastmod: 2026-06-19
 draft: false
 weight: 37
 type: example

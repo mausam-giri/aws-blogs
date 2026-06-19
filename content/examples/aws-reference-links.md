@@ -2,7 +2,7 @@
 title: "AWS Reference Links"
 description: "Well-Architected, whitepapers, workshops, labs, and curated AWS documentation links."
 date: 2026-06-09
-lastmod: 2026-06-09
+lastmod: 2026-06-19
 draft: false
 weight: 40
 type: example

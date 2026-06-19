@@ -2,7 +2,7 @@
 title: "ShopSphere Backend Application"
 description: "Flask API, Dockerfile, and database init SQL for the ShopSphere EKS backend."
 date: 2026-06-09
-lastmod: 2026-06-09
+lastmod: 2026-06-19
 draft: false
 weight: 35
 type: example

@@ -2,7 +2,7 @@
 title: "Serverless CLI and Config Snippets"
 description: "SAM templates, scaling policies, and deploy commands from the Serverless on AWS walkthrough."
 date: 2026-06-09
-lastmod: 2026-06-09
+lastmod: 2026-06-19
 draft: false
 weight: 38
 type: example

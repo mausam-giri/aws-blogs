@@ -2,7 +2,7 @@
 title: "CLI and Code Snippets"
 description: "kubectl, eksctl, ECR, VPC Flow Logs, FSx, EBS, and DynamoDB capacity reference snippets."
 date: 2026-06-09
-lastmod: 2026-06-09
+lastmod: 2026-06-19
 draft: false
 weight: 30
 type: example

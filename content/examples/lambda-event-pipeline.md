@@ -2,7 +2,7 @@
 title: "Lambda Event-Driven Pipeline"
 description: "EventBridge, SNS, SQS, DynamoDB, and RDS Lambda pipeline with IAM permissions."
 date: 2026-06-09
-lastmod: 2026-06-09
+lastmod: 2026-06-19
 draft: false
 weight: 20
 type: example

@@ -2,7 +2,7 @@
 title: "Examples"
 description: "Copy-paste policies, code, CLI commands, and reference links."
 date: 2026-06-09
-lastmod: 2026-06-09
+lastmod: 2026-06-19
 draft: false
 weight: 20
 bookCollapseSection: true
