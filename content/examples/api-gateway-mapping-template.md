@@ -18,10 +18,6 @@ related:
   - examples/cli-snippets
 ---
 
-# API Gateway Mapping Template
-
-## Mapping Template
-
 ### DynamoDB
 
 https://aws.amazon.com/blogs/compute/using-amazon-api-gateway-as-a-proxy-for-dynamodb/

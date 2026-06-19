@@ -20,8 +20,6 @@ related:
   - examples/aws-reference-links
 ---
 
-# **CodePipeline tutorials**
-
 1. ECS CodePipeline (#ECS CodePipeline)
 2. Lambda CodePipeline (#Lambda)
 
